@@ -5,43 +5,15 @@ let sliderItem = document.getElementsByClassName("slider__item")
 let sliderItemArr = Array.from(sliderItem)
 
 next[0].onclick = function () {
-    for (let i = 0; i < sliderItemArr.length; i++) {
-        if (sliderItemArr[i].className === 'slider__item slider__item_active') {
-            sliderItemArr[i].className = 'slider__item'
-            i++
-            if (sliderItemArr[i] == undefined) {
-                i = 0
-                sliderItemArr[i].className = 'slider__item slider__item_active'
-            }
-            sliderItemArr[i].className = 'slider__item slider__item_active'
-        }
-
-    }
+    let active = sliderItemArr.findIndex(item => item.className == 'slider__item slider__item_active');
+    sliderItemArr[active].className = 'slider__item'
+    active < sliderItemArr.length - 1 ? active++ : active = 0;
+    sliderItemArr[active].className = 'slider__item slider__item_active'
 }
 
 prev[0].onclick = function () {
-    for (let i = 0; i < sliderItemArr.length; i++) {
-        if (sliderItemArr[i].className === 'slider__item slider__item_active') {
-            sliderItemArr[i].className = 'slider__item'
-            i--
-            if (sliderItemArr[i] == undefined) {
-                i = sliderItemArr.length - 1
-                sliderItemArr[i].className = 'slider__item slider__item_active'
-            }
-            sliderItemArr[i].className = 'slider__item slider__item_active'
-        }
-
-    }
+    let active = sliderItemArr.findIndex(item => item.className == 'slider__item slider__item_active');
+    sliderItemArr[active].className = 'slider__item'
+    active > 0 ? active-- : active = sliderItemArr.length - 1;
+    sliderItemArr[active].className = 'slider__item slider__item_active'
 }
-
-
-
-
-
-
-
-
-
-
-
-
