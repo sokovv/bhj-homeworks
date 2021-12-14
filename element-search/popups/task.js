@@ -7,6 +7,7 @@ let showSuccess = document.getElementsByClassName('show-success')
 modulMain.className = "modal modal_active"
 
 function Success() {
+    modulMain.classList.remove('modal_active');
     modulSuccess.classList.add('modal_active');
 }
 
