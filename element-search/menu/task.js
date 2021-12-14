@@ -14,10 +14,10 @@ for (let i = 0; i < menuLinkArr.length; i++) {
     let link = getlink(i);
 
     link.onclick = function () {
-        if (link.nextElementSibling.className === 'menu menu_sub') {
-            link.nextElementSibling.className = 'menu menu_sub menu_active';
+        if (link.parentElement.querySelector('ul').className === 'menu menu_sub') {
+            link.parentElement.querySelector('ul').className = 'menu menu_sub menu_active'
         } else {
-            link.nextElementSibling.className = 'menu menu_sub'
+            link.parentElement.querySelector('ul').className = 'menu menu_sub'
         }
         return false;
     }
