@@ -17,14 +17,14 @@ for (let i = 0; i < menuLinkArr.length; i++) {
 
 
     link.onclick = function () {
-        if (link.parentElement.querySelector('ul').className == 'menu menu_sub' || link.parentElement.querySelector('ul').className == 'menu menu_sub menu_active') {
+        if (link.parentElement.querySelector('ul') != null) {
             if (link.parentElement.querySelector('ul').className == 'menu menu_sub') {
                 link.parentElement.querySelector('ul').className = 'menu menu_sub menu_active'
             } else {
                 link.parentElement.querySelector('ul').className = 'menu menu_sub'
             }
             return false;
-        } else return;
+        } 
     }
 }
 
