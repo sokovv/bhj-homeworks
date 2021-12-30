@@ -49,7 +49,7 @@ for (i = 0; i < add.length; i++) {
             card[0].innerHTML += `
     <div class="cart__product" data-id=${link.closest(".product").dataset.id}>
     <img src=${link.closest('.product').querySelector('img').currentSrc} alt=""
-    class="product__image">
+    class="cart__product-image">
     <div class="cart__product-count">${link.closest('.product').querySelector('.product__quantity-value').innerText}</div>
     </div>`
                 ;
