@@ -1,6 +1,12 @@
 let list = document.getElementsByClassName("tasks__list")
 let input = document.getElementById("task__input")
 let task = document.getElementsByClassName("task")
+let button = document.getElementById('tasks__add');
+
+
+button.addEventListener('click', e => {
+    e.preventDefault()
+})
 
 input.addEventListener('keydown', e => {
     if (e.key === "Enter" && input.value.trim() != "") {
@@ -12,7 +18,9 @@ input.addEventListener('keydown', e => {
         <a href="#" class="task__remove">&times;</a>
       </div>`)
             ;
-        event.preventDefault()
+        input.value = "";
+        e.preventDefault()
+
     }
 })
 
@@ -20,7 +28,7 @@ function rem(e) {
     if (e.target.className === "task__remove") {
         e.target.parentElement.remove()
     }
-    event.preventDefault()
+    e.preventDefault()
 }
 
 list[0].addEventListener('click', rem);
