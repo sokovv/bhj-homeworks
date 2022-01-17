@@ -1,7 +1,7 @@
 let editor = document.getElementById("editor")
+editor.value = localStorage.getItem('text')
 
-if (editor.value.trim() === "" && localStorage.text != undefined) {
-    editor.value = localStorage.text
-} else {
-    localStorage.text = editor.value.trim();
+function onInput() {
+    localStorage.setItem('text', editor.value.trim());
 }
+editor.addEventListener("input", onInput);
