@@ -1,10 +1,12 @@
 let form = document.getElementById('signin__form');
 let welcome = document.getElementById("welcome")
 let user = document.getElementById('user_id')
+let signin = document.getElementById('signin')
 
-if (localStorage.id != undefined) {
+if (localStorage.getItem('id')) {
+    signin.classList.remove('signin_active')
     welcome.classList.add('welcome_active')
-    user.innerText = localStorage.id
+    user.innerText = localStorage.getItem('id')
 }
 
 form.addEventListener('submit', (e) => {
@@ -18,10 +20,11 @@ form.addEventListener('submit', (e) => {
             alert('Ошибка: ' + xhr.status);
             return;
         }
-        if (xhr.response.success === true) {
-            localStorage.id = xhr.response.user_id
+        if (xhr.response.success) {
+            localStorage.setItem('id', xhr.response.user_id);
             welcome.classList.add('welcome_active')
-            user.innerText = localStorage.id
+            user.innerText = localStorage.getItem('id')
+            signin.classList.remove('signin_active')
         } else {
             alert('«Неверный логин/пароль»')
         }
