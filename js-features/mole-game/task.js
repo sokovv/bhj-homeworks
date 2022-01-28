@@ -1,6 +1,12 @@
 const dead = document.getElementById("dead");
 const lost = document.getElementById("lost");
 
+function deadLost(text) {
+    alert(text)
+    dead.textContent = 0
+    lost.textContent = 0
+}
+
 for (let index = 1; index <= 9; index++) {
 
     function getHole(index) {
@@ -17,14 +23,10 @@ for (let index = 1; index <= 9; index++) {
             lost.textContent++
         }
         if (dead.textContent == 10) {
-            alert('Вы победили')
-            dead.textContent = 0
-            lost.textContent = 0
+            deadLost('Вы победили')
         }
         if (lost.textContent == 5) {
-            alert('Вы проиграли')
-            dead.textContent = 0
-            lost.textContent = 0
+            deadLost('Вы проиграли')
         }
     }
 

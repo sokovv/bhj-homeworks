@@ -20,11 +20,6 @@ function taskadd(e) {
 
 button.addEventListener('click', taskadd)
 
-input.addEventListener('keydown', e => {
-    if (e.key === "Enter") {
-        taskadd
-    }
-})
 
 function rem(e) {
     if (e.target.className === "task__remove") {
